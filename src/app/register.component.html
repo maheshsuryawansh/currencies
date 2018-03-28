@@ -1,0 +1,86 @@
+<div>
+      <div>
+       
+
+      
+          
+		  <h2>Registration form</h2>
+<form #loginForm="ngForm" name="myFormName" (ngSubmit)="submitForm(loginForm, registrationformModel)">
+
+<div>
+
+	<label>Name</label><div><input type="text"  required [(ngModel)]="registrationformModel.name" name="name" value="mahesh" #nameM="ngModel"></div><br />
+		<div *ngIf="submitted && nameM.invalid && nameM.errors.required">This field is required</div>
+		
+</div>
+<div>
+	<label>Contact</label><div><input type="text"  required [(ngModel)]="registrationformModel.contact" name="contact" #contactM="ngModel" value="9876545678"></div><br />
+		<div *ngIf="submitted && contactM.invalid && contactM.errors.required">This field is required</div>
+</div>
+
+<div>
+	<label>Email</label><div><input type="text" pattern="[^ @]*@[^ @]*"  required  [(ngModel)]="registrationformModel.email" name="email" #emailM="ngModel" value="mahesh@gmail.com" /></div><br />
+		<div *ngIf="submitted && emailM.invalid && emailM.errors.required">This field is required</div>
+		<div *ngIf="emailM.invalid && emailM.errors.pattern">please enter valid email id</div>
+</div>
+<div>
+	<label>Address</label><div><input type="text" pattern="[a-zA-Z]+"  required [(ngModel)]="registrationformModel.address" name="address" value="nigdi lane no 44" #addressM="ngModel" (change)="changeInput(addressM)"></div><br />
+	<div *ngIf="submitted && addressM.invalid && addressM.errors.required">This field is required</div>
+	<div *ngIf="addressM.invalid && addressM.errors.pattern">This field is invalid (Pattern Error) </div>
+	</div>
+	<div>
+	<label>password</label><div><input type="text"  required [(ngModel)]="registrationformModel.password" name="password" value="123456" #passwordM="ngModel"/></div><br />
+		<div *ngIf="submitted && passwordM.invalid && passwordM.errors.required">This field is required</div>
+</div>
+<div>
+	<label>Confirmpassword</label><div><input type="text" value="123456"  required [(ngModel)]="registrationformModel.confirmPassword" name="confirmPassword" #confirmpasswordM="ngModel"/></div><br/>
+			<div *ngIf="submitted && confirmpasswordM.invalid && confirmpasswordM.errors.required">This field is required</div>
+</div>
+<div>
+<label>Gender</label> <input type="radio" required #genderM="ngModel" [(ngModel)]="registrationformModel.sex"  name="sex" value="male">Male<br>
+        <input type="radio" required [(ngModel)]="registrationformModel.sex" #genderM="ngModel"  name="sex" value="female">Female
+	<div *ngIf="submitted && genderM.invalid && genderM.errors.required">This field is required</div>
+</div>
+<div>
+<label>Date</label><div><input type="date"  required [(ngModel)]="registrationformModel.date" name="date" #dateM="ngModel"/></div>
+			<div *ngIf="submitted && dateM.invalid && dateM.errors.required">This field is required</div>
+
+</div>
+<div>
+
+<label for="exampleSelect1">Country</label>
+	<div><select  name="country" required [(ngModel)]="registrationformModel.country" #countryM="ngModel" id="exampleSelect1">
+		<option>select</option>
+		<option>India</option>
+		<option>USA</option>
+		<option>China</option>
+		<option>Australia</option>
+	</select></div>
+	<br />
+		<div *ngIf="submitted && countryM.invalid && countryM.errors.required">This field is required</div>
+		
+		</div>
+
+
+	<button type="submit">Submit</button>
+		
+</form>
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+    
+
+  
+
+
+
+
+
+

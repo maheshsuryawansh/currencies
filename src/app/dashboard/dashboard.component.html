@@ -1,0 +1,67 @@
+
+
+ <div class="row">
+ 
+  <form #currencyForm="ngForm" name="myFormName" (ngSubmit)="submitCurrency(currencyForm, currencyformModel)">
+  <div class="col-sm-2" style="margin-left:1250px;margin-top:60px;"><button type="submit" class="btn btn-primary" (click)="logout()">Logout</button></div>
+        <div class="col-sm-8" style="margin:90px;">
+           
+		   <select name="usd">
+		   <option>USD</option>
+		   </select>
+		  <!--  {{selectedCurrency}}-----{{ selectedCurrency * selectedValue}} -->
+		   <input type="text" name="number" [(ngModel)]="currencyformModel.mynumber" />
+  <select name="currencies" [(ngModel)]="currencyformModel.currencies">
+    
+   
+    <option [value]="currency.value" *ngFor="let currency of currencyRates">
+  {{currency.name}}
+	</option>
+  </select>
+		
+			</div>
+		
+			<div class="col-sm-2" style="margin-left:190px">
+ <button type="submit" class="btn btn-success btn-lg float-right">convert Currency</button>
+			
+		   </div>
+		
+		</form>
+		
+    
+    </div>
+ 
+<div class="row">
+<div class="col-sm-12">
+	
+<div class="table-responsive">
+            <table class="table table-striped" style="margin:30px">
+              <thead>
+               
+			   <tr>
+      <th>ID</th>
+	   <th>Name</th>
+      <th>Number</th>
+	  <th>USD to</th>
+      <th>converted currencies</th>
+      <th>Total</th>
+ 
+    </tr>
+              </thead>
+              <tbody>
+               <tr *ngFor="let data of users; let i = index">
+	
+      <th scope="row">{{i+1}}</th>
+	  <td>{{data.name}}</td>
+      <td>{{data.mynumber}}<span style="font-size:20px">*</span></td>
+      <td>{{1}}</td>
+      <td>{{data.currencies}}{{[[data.currencyName]]}}</td>
+      <td>{{data.mynumber*data.currencies}}</td>
+     </tr> 
+	  
+              </tbody>
+            </table>
+          </div>
+		 
+</div>
+</div>
